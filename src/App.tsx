@@ -5,19 +5,20 @@ import { InputBox } from "./components/index"
 
 function App() {
 
-  const [amount, setAmount] = useState(0)
-  const [from, setFrom] = useState('usd')
-  const [to, setTo] = useState('php')
-  const [convertedAmount, setConvertedAmount] = useState(0)
+  const [amount, setAmount] = useState<number>(0)
+  const [from, setFrom] = useState<string>('usd')
+  const [to, setTo] = useState<string>('php')
+  const [convertedAmount, setConvertedAmount] = useState<number>(0)
 
-  const currencyInfo = useCurrencyInfo(from);
-  const options = Object.keys(currencyInfo);
+  const currencyInfo:Record<string,number> = useCurrencyInfo(from);
+  const options:string[] = Object.keys(currencyInfo);
 
   const swap = () => {
-    setFrom(to)
-    setTo(from)
-    setConvertedAmount(amount)
-    setAmount(convertedAmount)
+    const tempFrom = from;
+    setFrom(to);
+    setTo(tempFrom);
+    setConvertedAmount(amount);
+    setAmount(convertedAmount);
   }
 
   const convert = () => {

@@ -3,13 +3,13 @@ import { useId } from "react";
 interface appProps {
     label: string;
     amount: number;
-    onAmountChange: ()=> void;
-    onCurrencyChange: ()=> void;
+    onAmountChange?: (amount:number)=> void;
+    onCurrencyChange: (currency:string)=> void;
     currencyOption: string[];
-    selectedCurrency: string;
-    amountDisabled: boolean;
-    currencyDisabled: boolean;
-    className: string;
+    selectedCurrency?: string;
+    amountDisabled?: boolean;
+    currencyDisabled?: boolean;
+    className?: string;
 }
 
 function InputBox({label
